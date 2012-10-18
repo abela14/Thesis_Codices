@@ -1,0 +1,17 @@
+*incoming and outgoing network traffic in the application layer
+= CONNECT(), socket(), execute(), PIPE(), IOPERM(), IOPL()
+
+*read and write operations on all storages
+= OPEN(), (P)READ(), WRITE(), SYSLOG(), FSYNC(), FDATASYNC(), SYSCTL()
+
+*services and processes started 
+= (V)FORK(), PTRACE(), GETPPID, GETPGRP, CLONE(), PRCTL()
+
+*file transfer through the network
+= MKDIR(), SENDFILE(), FCHDIR()
+
+*bypassed permissions
+= ACCESS(), FCHMOD(), L(/F)CHOWN(), CHROOT()
+
+*broadcast receivers such as phone call and sms listeners
+= SEND() [SENDTO() & SENDMSG()], LISTEN()
