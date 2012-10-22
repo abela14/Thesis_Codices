@@ -1,0 +1,9 @@
+%SAMPLE ARFF FOR APPLICATION FEATURE 
+@relation 'features' 
+@attribute 'write' numeric 
+@attribute 'read' numeric 
+@attribute 'open' numeric 
+@attribute 'class' {'trojan', 'virus'} 
+
+@data 
+903,915,1795,'DogOWar'

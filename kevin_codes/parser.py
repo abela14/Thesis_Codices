@@ -1,7 +1,7 @@
 import random, os, time, re
 
 global filename
-KEYWORDS = ['open']
+KEYWORDS = ['write']
 
 def openfile(filename):
 	global file_p
@@ -24,7 +24,7 @@ def readfile():
 def closefile():
 	file_p.close
 
-openfile("sample.txt")
+openfile("DogOWar2.txt")
 readfile()
 closefile()
 

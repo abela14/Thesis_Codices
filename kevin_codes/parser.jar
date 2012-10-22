@@ -1,0 +1,47 @@
+import random, os, time
+
+inputnum = 1
+inputcheck = 1
+
+def openfile():
+	global filename
+	global file_p
+	global filesize
+	filename = raw_input("Input filename: ")
+	try:
+		file_p = open(filename, 'r')
+		filesize = os.path.getsize(filename)
+		print "File: " + filename + " opened with filesize of " + str(filesize) + " bytes."
+	except IOError:
+		print "File not found."
+	inputnum = 1
+	return inputnum
+
+def readfile():
+	data = file_p.read()
+	print data
+	inputnum = 1
+	return inputnum
+
+def closefile():
+	file_p.close
+	inputnum  = 1
+	return inputnum
+
+def exit():
+	print "Closing Program..."
+	time.sleep(.5)
+	inputnum = 0
+	return inputnum
+
+options = ['C','c','E','e','O','o','R','r']
+
+option = {'C' : closefile, 'c' : closefile, 'e' : exit, 'E' : exit, 'O' : openfile, 'o' : openfile, 'R' : readfile, 'r' : readfile}
+
+print "WELCOME TO THE AMDA PARSER PROGRAM!!!"
+while inputcheck == 1:
+	inputlet = raw_input("[O]pen file | [R]ead File | [C]lose file | [E]xit: ")
+	if inputlet in options:	
+		inputcheck = option[inputlet]()
+	else:
+		print "Invalid Input."

@@ -1,0 +1,18 @@
+%SAMPLE ARFF FOR APPLICATION FEATURES
+
+@relation 'features'
+
+@attribute 'write' numeric
+@attribute 'read' numeric
+@attribute 'open' numeric
+@attribute 'class' {'trojan', 'virus'}
+
+@data
+903,607,345,'virus'
+324,723,608,'trojan'
+845,625,325,'virus'
+762,526,252,'virus'
+335,747,647,'trojan'
+421,885,569,'trojan'
+
+
