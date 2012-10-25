@@ -2,20 +2,20 @@ import random, os, time, re
 
 global filename
 KEYWORDS = ["write", "open", "read"]
+CLASSES = ["spy","trojan","root","exploit"]
 
 def openfile(filename):
 	global file_p
 	global filesize
 
 	try:
-		file_p = open(filename, 'r')
-		filesize = os.path.getsize(filename)
+		file_p = open("logs\\" + filename, 'r')
 	except IOError:
 		print "File not found."
 
-def readfile():
+def parsefile(parsefilename):
 	data = file_p.readlines()
-	file_w = open("sample_parsed.txt", 'w')
+	file_w = open("parsedlogs\\" + parsefilename, 'w')
 	for line in data:
 		for word in KEYWORDS:
 			if re.search(word, line):
@@ -25,29 +25,31 @@ def readfile():
 def closefile():
 	file_p.close
 
-def arfftranscriptor():
+def arfftranscriptor(mclass, parsedlog):
 	try:
-		file2_p = open("sample_parsed.txt", 'r')
+		file2_p = open("parsedlogs\\" + parsedlog, 'r')
 	except IOError:
 		print "File not found."
 	
 	data1 = file2_p.readlines()
-	file2_w = open("sample_features.arff", 'w')
+	file2_w = open("sample_features.arff", 'a')
 	
-	file2_w.write("%SAMPLE ARFF FOR APPLICATION FEATURE \n@relation 'features' \n@attribute 'write' numeric \n@attribute 'read' numeric \n@attribute 'open' numeric \n@attribute 'class' {'trojan', 'virus'} \n\n@data \n")
 	counter = 0
 	for word in KEYWORDS:
 		for line in data1:
 			if re.search(word, line):
 				counter = counter + 1
 		file2_w.write(str(counter) + ",")
-	file2_w.write("'DogOWar'\n")
+	file2_w.write("'" + mclass + "'\n")
 	file2_p.close
 	file2_w.close
 
-	
-openfile("DogOWar2.txt")
-readfile()
-closefile()
-arfftranscriptor()
+logs = os.listdir("logs")
+for word in logs:
+	openfile(word)
+	parsefile("initialoutput.txt")
+	for word2 in CLASSES:
+		if re.search(word2,word):
+			arfftranscriptor(word2,"initialoutput.txt")
+	closefile()
 

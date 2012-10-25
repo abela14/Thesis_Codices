@@ -1,9 +1,14 @@
 %SAMPLE ARFF FOR APPLICATION FEATURE 
 @relation 'features' 
 @attribute 'write' numeric 
-@attribute 'read' numeric 
 @attribute 'open' numeric 
-@attribute 'class' {'trojan', 'virus'} 
+@attribute 'read' numeric 
+@attribute 'class' {'trojan', 'root', 'exploit', 'spyware'} 
 
 @data 
-903,915,1795,'DogOWar'
+903,915,1795,'trojan'
+656,657,1315,'trojan'
+131,134,279,'exploit'
+77,86,182,'root'
+43,44,86,'spy'
+411,414,929,'trojan'
